@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+    <style>
+        /* Full page smooth background */
+         body{
+              margin: 0;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+    
+              background: url("{{ url_for('static', filename='cinema-7371380_1280.png') }}") no-repeat center center fixed;
+              height: 800px;
+              background-color: rgb(237, 193, 177);
+
+              font-family: 'Poppins', sans-serif;
+              color: #333;
+}
+
+
+
+        /* Center container for content */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2); /* semi-transparent for style */
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px); /* smooth blur effect */
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* Input box styling */
+        input[type="text"] {
+            width: 300px;  /* boro size */
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        /* Button styling */
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: white;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Movie Recommendation System</h1>
+        <form action="/recommend" method="post">
+            <input type="text" name="movie_title" placeholder="Enter a movie title" required><br>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>

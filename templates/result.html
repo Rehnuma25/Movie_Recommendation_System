@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <style>
+        /* Full page styling */
+        body {
+              margin: 0;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+    
+              background: url("{{ url_for('static', filename='cinema-4153289_1280.jpg') }}") no-repeat center center fixed;
+              background-size: cover; 
+
+              font-family: 'Poppins', sans-serif;
+              color: #333;
+}
+
+        h1 {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        ol {
+            background: rgba(243, 221, 235, 0.8);
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 18px;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        li {
+            margin: 10px 0;
+            color: #333;
+            font-weight: 500;
+        }
+
+        p {
+            color: #fff;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            background: #e3ced0;
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1> Recommendations for "{{ matched_title }}"</h1>
+
+    {% if recommendations %}
+        <ol>
+        {% for movie in recommendations %}
+            <li>{{ movie }}</li>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <p>No recommendations found for "{{ matched_title }}" </p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
